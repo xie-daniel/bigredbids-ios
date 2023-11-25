@@ -11,6 +11,8 @@
 		E4F752422B1016C700D2F768 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F752412B1016C700D2F768 /* ContentView.swift */; };
 		E4F752442B1016C800D2F768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F752432B1016C800D2F768 /* Assets.xcassets */; };
 		E4F752472B1016C800D2F768 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F752462B1016C800D2F768 /* Preview Assets.xcassets */; };
+		E4F7526B2B101F5500D2F768 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7526A2B101F5500D2F768 /* UIColor+Extension.swift */; };
+		E4F7526E2B12990100D2F768 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7526D2B12990100D2F768 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		E4F752462B1016C800D2F768 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4F7524C2B1016C900D2F768 /* bigredbidsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bigredbidsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F752562B1016C900D2F768 /* bigredbidsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bigredbidsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4F7526A2B101F5500D2F768 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E4F7526D2B12990100D2F768 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 		E4F7523E2B1016C700D2F768 /* bigredbids */ = {
 			isa = PBXGroup;
 			children = (
+				E4F7526C2B1298EE00D2F768 /* Networking */,
+				E4F752692B101F4400D2F768 /* Extensions */,
 				E4F7523F2B1016C700D2F768 /* bigredbidsApp.swift */,
 				E4F752412B1016C700D2F768 /* ContentView.swift */,
 				E4F752432B1016C800D2F768 /* Assets.xcassets */,
@@ -100,6 +106,22 @@
 				E4F752462B1016C800D2F768 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E4F752692B101F4400D2F768 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E4F7526A2B101F5500D2F768 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E4F7526C2B1298EE00D2F768 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E4F7526D2B12990100D2F768 /* NetworkManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +254,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F7526E2B12990100D2F768 /* NetworkManager.swift in Sources */,
+				E4F7526B2B101F5500D2F768 /* UIColor+Extension.swift in Sources */,
 				E4F752422B1016C700D2F768 /* ContentView.swift in Sources */,
 				E4F752402B1016C700D2F768 /* bigredbidsApp.swift in Sources */,
 			);
