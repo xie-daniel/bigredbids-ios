@@ -18,11 +18,12 @@ class AppVC: UIViewController {
     
     // MARK: - Properties (data)
     
-    private let filters = ["Events", "My Bids", "My Listing"]
+    private let filters = ["Events", "My Bids", "My Listings"]
     private var selectedFilterIndex: Int!
     private var user_id: Int
-    private var food: [Food] = []
-    private var filteredRecipes: [Food] = []
+    private var food: [Food] = Food.dummyData
+    private var filteredRecipes: [Food] = Food.dummyData
+    private var firstConfigure = true
 
     
 
@@ -38,7 +39,7 @@ class AppVC: UIViewController {
         setupFilterCollectionView()
         setupEventCollectionView()
         updateEventCollectionView(with: food)
-        getData()
+        //getData()
     }
     
     init (id: Int) {
@@ -81,10 +82,10 @@ class AppVC: UIViewController {
         filterCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            filterCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
-            filterCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            filterCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            filterCollectionView.heightAnchor.constraint(equalToConstant: 40)
+            filterCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            filterCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            filterCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            filterCollectionView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     
@@ -107,8 +108,8 @@ class AppVC: UIViewController {
         eventCollectionView.refreshControl = refresh
         
         NSLayoutConstraint.activate([
-            eventCollectionView.topAnchor.constraint(equalTo: filterCollectionView.bottomAnchor),
-            eventCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
+            eventCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
+            eventCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80),
             eventCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             eventCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
@@ -146,12 +147,12 @@ extension AppVC: UICollectionViewDelegate {
             }
             filterCollectionView.reloadData()
             eventCollectionView.reloadData()
-            } else {
-                let selectedRecipe = food[indexPath.item]
-                let detailViewController = DetailedEventVC()
-                detailViewController.configure(with: selectedRecipe)
-                navigationController?.pushViewController(detailViewController, animated: true)
-            }
+        } else {
+            let selectedRecipe = filteredRecipes[indexPath.item]
+            let detailViewController = DetailedEventVC()
+            detailViewController.configure(with: selectedRecipe)
+            navigationController?.pushViewController(detailViewController, animated: true)
+        }
         
     }
 }
@@ -175,10 +176,10 @@ extension AppVC: UICollectionViewDataSource {
         
         if collectionView == filterCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilterCollectionViewCell.reuse, for: indexPath) as! FilterCollectionViewCell
-                    let filter = filters[indexPath.item]
-                    let isSelected = indexPath.item == selectedFilterIndex
+            let filter = filters[indexPath.item]
+            let isSelected = indexPath.item == selectedFilterIndex
             cell.configure(with: filter, isselected: isSelected)
-                    return cell
+            return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.reuse, for: indexPath) as! EventCollectionViewCell
             let recipe = filteredRecipes[indexPath.item]
