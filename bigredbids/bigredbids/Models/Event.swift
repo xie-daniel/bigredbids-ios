@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Food: Codable {
+struct Event: Codable {
     let id: String
     let description: String
     let difficulty: String
@@ -17,10 +17,10 @@ struct Food: Codable {
     let rating: Float
 }
 
-extension Food {
+extension Event {
  
     static let dummyData = [
-        Food(
+        Event(
             id: "801343ed-fc1b-4ed0-a226-2381f0ec4186",
             description: "This ropa vieja is great served on tortillas or over rice. Add sour cream, cheese, and fresh cilantro on the side.",
             difficulty: "Events",
@@ -28,7 +28,7 @@ extension Food {
             name: "Cuban Ropa Vieja",
             rating: 4.4
         ),
-        Food(
+        Event(
             id: "9d40a3f8-a40f-48c0-9aa6-28031fddde81",
             description: "You only need 3 ingredients for this crockpot Italian chicken with Italian dressing and Parmesan cheese. Nothing could be easier than this for a weekday meal that's ready when you get home.",
             difficulty: "My Bids",
@@ -36,7 +36,7 @@ extension Food {
             name: "Crockpot Italian Chicken",
             rating: 4.5
         ),
-        Food(
+        Event(
             id: "0c28ab59-e99d-4ec1-be2f-359a92537560",
             description: "This crockpot mac and cheese recipe is creamy, comforting, and takes just moments to assemble in a slow cooker. Great for large family gatherings and to take to potluck dinners. It's always a big hit!",
             difficulty: "My Listings",
@@ -44,7 +44,7 @@ extension Food {
             name: "Slow Cooker Mac and Cheese",
             rating: 4.3
         ),
-        Food(
+        Event(
             id: "ef10e605-65d0-4a85-9fd8-8e3294939473",
             description: "My mother was one of the best cooks I ever knew. Whenever she made stews we mostly found homemade dumplings in them. We never ate things from packages or microwaves and you sure could taste what food was. That's the only way I cook today - I don't use any electronic gadgets to cook with except an electric stove.",
             difficulty: "Events",
@@ -52,7 +52,7 @@ extension Food {
             name: "Homemade Dumplings",
             rating: 4.7
         ),
-        Food(
+        Event(
             id: "a69bdffc-c9ba-428b-8f06-24cef356a611",
             description: "Succulent pork loin with fragrant garlic, rosemary, and wine.",
             difficulty: "My Bids",
@@ -60,7 +60,7 @@ extension Food {
             name: "Roasted Pork Loin",
             rating: 4.5
         ),
-        Food(
+        Event(
             id: "85745755-11dd-4e68-8953-15f5194971bc",
             description: "My version of chicken Parmesan is a little different than what they do in the restaurants, with less sauce and a crispier crust.",
             difficulty: "Intermediate",

@@ -19,11 +19,10 @@ class AppVC: UIViewController {
     // MARK: - Properties (data)
     
     private let filters = ["Events", "My Bids", "My Listings"]
-    private var selectedFilterIndex: Int!
+    private var selectedFilterIndex: Int = 0
     private var user_id: Int
-    private var food: [Food] = Food.dummyData
-    private var filteredRecipes: [Food] = Food.dummyData
-    private var firstConfigure = true
+    private var food: [Event] = Event.dummyData
+    private var filteredRecipes: [Event] = Event.dummyData
 
     
 
@@ -34,6 +33,8 @@ class AppVC: UIViewController {
         title = "Big Red Bids"
         
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.topItem?.backButtonTitle = "Logout"
+        navigationController?.navigationBar.tintColor = UIColor.brb.red
         view.backgroundColor = UIColor.brb.white
         
         setupFilterCollectionView()
@@ -118,7 +119,7 @@ class AppVC: UIViewController {
     
     // MARK: - filtering
     
-    private func updateEventCollectionView(with recipes: [Food]) {
+    private func updateEventCollectionView(with recipes: [Event]) {
         food = recipes
         eventCollectionView.reloadData()
     }

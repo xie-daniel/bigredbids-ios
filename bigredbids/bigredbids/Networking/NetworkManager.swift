@@ -21,14 +21,14 @@ class NetworkManager {
 
     // MARK: - Requests
 
-    func fetchData(completion: @escaping ([Food]) -> Void) {
+    func fetchData(completion: @escaping ([Event]) -> Void) {
 
         decoder.dateDecodingStrategy = .iso8601
         decoder.keyDecodingStrategy = .convertFromSnakeCase
 
         AF.request(endpoint, method: .get)
             .validate()
-            .responseDecodable(of: [Food].self, decoder: decoder) { response in
+            .responseDecodable(of: [Event].self, decoder: decoder) { response in
                 switch response.result {
                 case .success(let posts):
                     print("SUCCESS!")

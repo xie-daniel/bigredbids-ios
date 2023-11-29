@@ -22,7 +22,7 @@ class DetailedEventVC: UIViewController {
     
     // MARK: - Properties (data)
     
-    var food: Food!
+    var food: Event!
     
     // MARK: - viewDidLoad and init
     
@@ -30,7 +30,7 @@ class DetailedEventVC: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.brb.white
-        
+        navigationController?.navigationBar.topItem?.backButtonTitle = "Events"
         setupEventImage()
         setupEventNameLabel()
         setupDateLabel()
@@ -165,7 +165,7 @@ class DetailedEventVC: UIViewController {
     
     // MARK: - configure
     
-    func configure(with food: Food) {
+    func configure(with food: Event) {
         eventImage.sd_setImage(with: URL(string: food.imageUrl))
         eventNameLabel.text = food.name
         eventDescriptionLabel.text = food.description

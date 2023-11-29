@@ -18,7 +18,7 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties (data)
     
-    private var food: Food!
+    private var food: Event!
     
     static let reuse: String = "RecipeCollectionViewCellReuse"
     
@@ -103,7 +103,7 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Button Helpers
     
-    func configure(with food: Food) {
+    func configure(with food: Event) {
         eventImage.sd_setImage(with: URL(string: food.imageUrl))
         eventName.text = food.name
         dateLabel.text = "\(food.rating) ∙ \(food.difficulty)"
