@@ -1,0 +1,6 @@
+framework module Pods_bigredbids {
+  umbrella header "Pods-bigredbids-umbrella.h"
+
+  export *
+  module * { export * }
+}

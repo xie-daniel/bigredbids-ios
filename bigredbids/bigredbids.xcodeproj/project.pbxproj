@@ -7,119 +7,150 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E4F752402B1016C700D2F768 /* bigredbidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7523F2B1016C700D2F768 /* bigredbidsApp.swift */; };
-		E4F752422B1016C700D2F768 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F752412B1016C700D2F768 /* ContentView.swift */; };
-		E4F752442B1016C800D2F768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F752432B1016C800D2F768 /* Assets.xcassets */; };
-		E4F752472B1016C800D2F768 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F752462B1016C800D2F768 /* Preview Assets.xcassets */; };
-		E4F7526B2B101F5500D2F768 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7526A2B101F5500D2F768 /* UIColor+Extension.swift */; };
-		E4F7526E2B12990100D2F768 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F7526D2B12990100D2F768 /* NetworkManager.swift */; };
+		1C7DE2520545804382FEF41B /* Pods_bigredbids.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B5D664F83AE158C4A51812 /* Pods_bigredbids.framework */; };
+		E4E77E0F2B16B70C00C06437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E0E2B16B70C00C06437 /* AppDelegate.swift */; };
+		E4E77E112B16B70C00C06437 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E102B16B70C00C06437 /* SceneDelegate.swift */; };
+		E4E77E132B16B70C00C06437 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E122B16B70C00C06437 /* ViewController.swift */; };
+		E4E77E182B16B70D00C06437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E77E172B16B70D00C06437 /* Assets.xcassets */; };
+		E4E77E1B2B16B70D00C06437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E77E192B16B70D00C06437 /* LaunchScreen.storyboard */; };
+		E4E77E272B16B75500C06437 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E262B16B75500C06437 /* User.swift */; };
+		E4E77E292B16B76C00C06437 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E282B16B76C00C06437 /* UIColor+Extension.swift */; };
+		E4E77E2B2B16B85300C06437 /* AppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E2A2B16B85300C06437 /* AppVC.swift */; };
+		E4E77E2D2B16B88600C06437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E77E2C2B16B88600C06437 /* Main.storyboard */; };
+		E4E77E302B16BA9F00C06437 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E2F2B16BA9F00C06437 /* EventCollectionViewCell.swift */; };
+		E4E77E322B16BAAC00C06437 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E312B16BAAC00C06437 /* FilterCollectionViewCell.swift */; };
+		E4E77E342B16BAF000C06437 /* DetailedEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E332B16BAF000C06437 /* DetailedEventVC.swift */; };
+		E4E77E372B16BC6B00C06437 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E362B16BC6B00C06437 /* NetworkManager.swift */; };
+		E4E77E392B16BD5600C06437 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E382B16BD5600C06437 /* UIFont+Extension.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E4F7524D2B1016C900D2F768 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E4F752342B1016C700D2F768 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E4F7523B2B1016C700D2F768;
-			remoteInfo = bigredbids;
-		};
-		E4F752572B1016C900D2F768 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E4F752342B1016C700D2F768 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E4F7523B2B1016C700D2F768;
-			remoteInfo = bigredbids;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		E4F7523C2B1016C700D2F768 /* bigredbids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bigredbids.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4F7523F2B1016C700D2F768 /* bigredbidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bigredbidsApp.swift; sourceTree = "<group>"; };
-		E4F752412B1016C700D2F768 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E4F752432B1016C800D2F768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E4F752462B1016C800D2F768 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E4F7524C2B1016C900D2F768 /* bigredbidsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bigredbidsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4F752562B1016C900D2F768 /* bigredbidsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bigredbidsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4F7526A2B101F5500D2F768 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		E4F7526D2B12990100D2F768 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		86B5D664F83AE158C4A51812 /* Pods_bigredbids.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bigredbids.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A76C84CA0D59D1624C4ED4CD /* Pods-bigredbids.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigredbids.release.xcconfig"; path = "Target Support Files/Pods-bigredbids/Pods-bigredbids.release.xcconfig"; sourceTree = "<group>"; };
+		DE4EB0821801A8990C1F6FB4 /* Pods-bigredbids.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigredbids.debug.xcconfig"; path = "Target Support Files/Pods-bigredbids/Pods-bigredbids.debug.xcconfig"; sourceTree = "<group>"; };
+		E4E77E0B2B16B70C00C06437 /* bigredbids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bigredbids.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4E77E0E2B16B70C00C06437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E4E77E102B16B70C00C06437 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E4E77E122B16B70C00C06437 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E4E77E172B16B70D00C06437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E4E77E1A2B16B70D00C06437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E4E77E1C2B16B70D00C06437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4E77E262B16B75500C06437 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E4E77E282B16B76C00C06437 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E4E77E2A2B16B85300C06437 /* AppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVC.swift; sourceTree = "<group>"; };
+		E4E77E2C2B16B88600C06437 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E4E77E2F2B16BA9F00C06437 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
+		E4E77E312B16BAAC00C06437 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		E4E77E332B16BAF000C06437 /* DetailedEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEventVC.swift; sourceTree = "<group>"; };
+		E4E77E362B16BC6B00C06437 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E4E77E382B16BD5600C06437 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E4F752392B1016C700D2F768 /* Frameworks */ = {
+		E4E77E082B16B70C00C06437 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E4F752492B1016C900D2F768 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E4F752532B1016C900D2F768 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				1C7DE2520545804382FEF41B /* Pods_bigredbids.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E4F752332B1016C700D2F768 = {
+		2FAC4EB97677E61186AE5C3A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E4F7523E2B1016C700D2F768 /* bigredbids */,
-				E4F7523D2B1016C700D2F768 /* Products */,
+				86B5D664F83AE158C4A51812 /* Pods_bigredbids.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A470B6FED4FE2FE126162B72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE4EB0821801A8990C1F6FB4 /* Pods-bigredbids.debug.xcconfig */,
+				A76C84CA0D59D1624C4ED4CD /* Pods-bigredbids.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E4E77E022B16B70C00C06437 = {
+			isa = PBXGroup;
+			children = (
+				E4E77E0D2B16B70C00C06437 /* bigredbids */,
+				E4E77E0C2B16B70C00C06437 /* Products */,
+				A470B6FED4FE2FE126162B72 /* Pods */,
+				2FAC4EB97677E61186AE5C3A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		E4F7523D2B1016C700D2F768 /* Products */ = {
+		E4E77E0C2B16B70C00C06437 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E4F7523C2B1016C700D2F768 /* bigredbids.app */,
-				E4F7524C2B1016C900D2F768 /* bigredbidsTests.xctest */,
-				E4F752562B1016C900D2F768 /* bigredbidsUITests.xctest */,
+				E4E77E0B2B16B70C00C06437 /* bigredbids.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E4F7523E2B1016C700D2F768 /* bigredbids */ = {
+		E4E77E0D2B16B70C00C06437 /* bigredbids */ = {
 			isa = PBXGroup;
 			children = (
-				E4F7526C2B1298EE00D2F768 /* Networking */,
-				E4F752692B101F4400D2F768 /* Extensions */,
-				E4F7523F2B1016C700D2F768 /* bigredbidsApp.swift */,
-				E4F752412B1016C700D2F768 /* ContentView.swift */,
-				E4F752432B1016C800D2F768 /* Assets.xcassets */,
-				E4F752452B1016C800D2F768 /* Preview Content */,
+				E4E77E352B16BC6200C06437 /* Networking */,
+				E4E77E2E2B16BA8D00C06437 /* Controllers */,
+				E4E77E252B16B72D00C06437 /* Extensions */,
+				E4E77E242B16B72A00C06437 /* Models */,
+				E4E77E222B16B71500C06437 /* Views */,
+				E4E77E0E2B16B70C00C06437 /* AppDelegate.swift */,
+				E4E77E102B16B70C00C06437 /* SceneDelegate.swift */,
+				E4E77E172B16B70D00C06437 /* Assets.xcassets */,
+				E4E77E192B16B70D00C06437 /* LaunchScreen.storyboard */,
+				E4E77E2C2B16B88600C06437 /* Main.storyboard */,
+				E4E77E1C2B16B70D00C06437 /* Info.plist */,
 			);
 			path = bigredbids;
 			sourceTree = "<group>";
 		};
-		E4F752452B1016C800D2F768 /* Preview Content */ = {
+		E4E77E222B16B71500C06437 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E4F752462B1016C800D2F768 /* Preview Assets.xcassets */,
+				E4E77E2F2B16BA9F00C06437 /* EventCollectionViewCell.swift */,
+				E4E77E312B16BAAC00C06437 /* FilterCollectionViewCell.swift */,
 			);
-			path = "Preview Content";
+			path = Views;
 			sourceTree = "<group>";
 		};
-		E4F752692B101F4400D2F768 /* Extensions */ = {
+		E4E77E242B16B72A00C06437 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E4F7526A2B101F5500D2F768 /* UIColor+Extension.swift */,
+				E4E77E262B16B75500C06437 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E4E77E252B16B72D00C06437 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E4E77E282B16B76C00C06437 /* UIColor+Extension.swift */,
+				E4E77E382B16BD5600C06437 /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		E4F7526C2B1298EE00D2F768 /* Networking */ = {
+		E4E77E2E2B16BA8D00C06437 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E4F7526D2B12990100D2F768 /* NetworkManager.swift */,
+				E4E77E2A2B16B85300C06437 /* AppVC.swift */,
+				E4E77E122B16B70C00C06437 /* ViewController.swift */,
+				E4E77E332B16BAF000C06437 /* DetailedEventVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E4E77E352B16BC6200C06437 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E4E77E362B16BC6B00C06437 /* NetworkManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -127,13 +158,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E4F7523B2B1016C700D2F768 /* bigredbids */ = {
+		E4E77E0A2B16B70C00C06437 /* bigredbids */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E4F752602B1016C900D2F768 /* Build configuration list for PBXNativeTarget "bigredbids" */;
+			buildConfigurationList = E4E77E1F2B16B70D00C06437 /* Build configuration list for PBXNativeTarget "bigredbids" */;
 			buildPhases = (
-				E4F752382B1016C700D2F768 /* Sources */,
-				E4F752392B1016C700D2F768 /* Frameworks */,
-				E4F7523A2B1016C700D2F768 /* Resources */,
+				0A7F066D363A3BA6D11B0CBF /* [CP] Check Pods Manifest.lock */,
+				E4E77E072B16B70C00C06437 /* Sources */,
+				E4E77E082B16B70C00C06437 /* Frameworks */,
+				E4E77E092B16B70C00C06437 /* Resources */,
+				9DD72DBD9D8B812ECA315DE8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,69 +174,25 @@
 			);
 			name = bigredbids;
 			productName = bigredbids;
-			productReference = E4F7523C2B1016C700D2F768 /* bigredbids.app */;
+			productReference = E4E77E0B2B16B70C00C06437 /* bigredbids.app */;
 			productType = "com.apple.product-type.application";
-		};
-		E4F7524B2B1016C900D2F768 /* bigredbidsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E4F752632B1016C900D2F768 /* Build configuration list for PBXNativeTarget "bigredbidsTests" */;
-			buildPhases = (
-				E4F752482B1016C900D2F768 /* Sources */,
-				E4F752492B1016C900D2F768 /* Frameworks */,
-				E4F7524A2B1016C900D2F768 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E4F7524E2B1016C900D2F768 /* PBXTargetDependency */,
-			);
-			name = bigredbidsTests;
-			productName = bigredbidsTests;
-			productReference = E4F7524C2B1016C900D2F768 /* bigredbidsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		E4F752552B1016C900D2F768 /* bigredbidsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E4F752662B1016C900D2F768 /* Build configuration list for PBXNativeTarget "bigredbidsUITests" */;
-			buildPhases = (
-				E4F752522B1016C900D2F768 /* Sources */,
-				E4F752532B1016C900D2F768 /* Frameworks */,
-				E4F752542B1016C900D2F768 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E4F752582B1016C900D2F768 /* PBXTargetDependency */,
-			);
-			name = bigredbidsUITests;
-			productName = bigredbidsUITests;
-			productReference = E4F752562B1016C900D2F768 /* bigredbidsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E4F752342B1016C700D2F768 /* Project object */ = {
+		E4E77E032B16B70C00C06437 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					E4F7523B2B1016C700D2F768 = {
+					E4E77E0A2B16B70C00C06437 = {
 						CreatedOnToolsVersion = 14.3.1;
-					};
-					E4F7524B2B1016C900D2F768 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = E4F7523B2B1016C700D2F768;
-					};
-					E4F752552B1016C900D2F768 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = E4F7523B2B1016C700D2F768;
 					};
 				};
 			};
-			buildConfigurationList = E4F752372B1016C700D2F768 /* Build configuration list for PBXProject "bigredbids" */;
+			buildConfigurationList = E4E77E062B16B70C00C06437 /* Build configuration list for PBXProject "bigredbids" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -211,87 +200,105 @@
 				en,
 				Base,
 			);
-			mainGroup = E4F752332B1016C700D2F768;
-			productRefGroup = E4F7523D2B1016C700D2F768 /* Products */;
+			mainGroup = E4E77E022B16B70C00C06437;
+			productRefGroup = E4E77E0C2B16B70C00C06437 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E4F7523B2B1016C700D2F768 /* bigredbids */,
-				E4F7524B2B1016C900D2F768 /* bigredbidsTests */,
-				E4F752552B1016C900D2F768 /* bigredbidsUITests */,
+				E4E77E0A2B16B70C00C06437 /* bigredbids */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E4F7523A2B1016C700D2F768 /* Resources */ = {
+		E4E77E092B16B70C00C06437 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4F752472B1016C800D2F768 /* Preview Assets.xcassets in Resources */,
-				E4F752442B1016C800D2F768 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E4F7524A2B1016C900D2F768 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E4F752542B1016C900D2F768 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				E4E77E2D2B16B88600C06437 /* Main.storyboard in Resources */,
+				E4E77E1B2B16B70D00C06437 /* LaunchScreen.storyboard in Resources */,
+				E4E77E182B16B70D00C06437 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0A7F066D363A3BA6D11B0CBF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bigredbids-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DD72DBD9D8B812ECA315DE8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bigredbids/Pods-bigredbids-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bigredbids/Pods-bigredbids-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bigredbids/Pods-bigredbids-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		E4F752382B1016C700D2F768 /* Sources */ = {
+		E4E77E072B16B70C00C06437 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4F7526E2B12990100D2F768 /* NetworkManager.swift in Sources */,
-				E4F7526B2B101F5500D2F768 /* UIColor+Extension.swift in Sources */,
-				E4F752422B1016C700D2F768 /* ContentView.swift in Sources */,
-				E4F752402B1016C700D2F768 /* bigredbidsApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E4F752482B1016C900D2F768 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E4F752522B1016C900D2F768 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				E4E77E272B16B75500C06437 /* User.swift in Sources */,
+				E4E77E302B16BA9F00C06437 /* EventCollectionViewCell.swift in Sources */,
+				E4E77E372B16BC6B00C06437 /* NetworkManager.swift in Sources */,
+				E4E77E132B16B70C00C06437 /* ViewController.swift in Sources */,
+				E4E77E0F2B16B70C00C06437 /* AppDelegate.swift in Sources */,
+				E4E77E112B16B70C00C06437 /* SceneDelegate.swift in Sources */,
+				E4E77E2B2B16B85300C06437 /* AppVC.swift in Sources */,
+				E4E77E322B16BAAC00C06437 /* FilterCollectionViewCell.swift in Sources */,
+				E4E77E292B16B76C00C06437 /* UIColor+Extension.swift in Sources */,
+				E4E77E342B16BAF000C06437 /* DetailedEventVC.swift in Sources */,
+				E4E77E392B16BD5600C06437 /* UIFont+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		E4F7524E2B1016C900D2F768 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E4F7523B2B1016C700D2F768 /* bigredbids */;
-			targetProxy = E4F7524D2B1016C900D2F768 /* PBXContainerItemProxy */;
+/* Begin PBXVariantGroup section */
+		E4E77E192B16B70D00C06437 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4E77E1A2B16B70D00C06437 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
 		};
-		E4F752582B1016C900D2F768 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E4F7523B2B1016C700D2F768 /* bigredbids */;
-			targetProxy = E4F752572B1016C900D2F768 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E4F7525E2B1016C900D2F768 /* Debug */ = {
+		E4E77E1D2B16B70D00C06437 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -351,7 +358,7 @@
 			};
 			name = Debug;
 		};
-		E4F7525F2B1016C900D2F768 /* Release */ = {
+		E4E77E1E2B16B70D00C06437 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -405,19 +412,19 @@
 			};
 			name = Release;
 		};
-		E4F752612B1016C900D2F768 /* Debug */ = {
+		E4E77E202B16B70D00C06437 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE4EB0821801A8990C1F6FB4 /* Pods-bigredbids.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"bigredbids/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = bigredbids/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -425,7 +432,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bigredbids.bigredbids;
+				PRODUCT_BUNDLE_IDENTIFIER = cs1998.bigredbids;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -433,19 +440,19 @@
 			};
 			name = Debug;
 		};
-		E4F752622B1016C900D2F768 /* Release */ = {
+		E4E77E212B16B70D00C06437 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A76C84CA0D59D1624C4ED4CD /* Pods-bigredbids.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"bigredbids/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = bigredbids/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -453,126 +460,36 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bigredbids.bigredbids;
+				PRODUCT_BUNDLE_IDENTIFIER = cs1998.bigredbids;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		E4F752642B1016C900D2F768 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bigredbids.bigredbidsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bigredbids.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/bigredbids";
-			};
-			name = Debug;
-		};
-		E4F752652B1016C900D2F768 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bigredbids.bigredbidsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bigredbids.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/bigredbids";
-			};
-			name = Release;
-		};
-		E4F752672B1016C900D2F768 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bigredbids.bigredbidsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = bigredbids;
-			};
-			name = Debug;
-		};
-		E4F752682B1016C900D2F768 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bigredbids.bigredbidsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = bigredbids;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E4F752372B1016C700D2F768 /* Build configuration list for PBXProject "bigredbids" */ = {
+		E4E77E062B16B70C00C06437 /* Build configuration list for PBXProject "bigredbids" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E4F7525E2B1016C900D2F768 /* Debug */,
-				E4F7525F2B1016C900D2F768 /* Release */,
+				E4E77E1D2B16B70D00C06437 /* Debug */,
+				E4E77E1E2B16B70D00C06437 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E4F752602B1016C900D2F768 /* Build configuration list for PBXNativeTarget "bigredbids" */ = {
+		E4E77E1F2B16B70D00C06437 /* Build configuration list for PBXNativeTarget "bigredbids" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E4F752612B1016C900D2F768 /* Debug */,
-				E4F752622B1016C900D2F768 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E4F752632B1016C900D2F768 /* Build configuration list for PBXNativeTarget "bigredbidsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E4F752642B1016C900D2F768 /* Debug */,
-				E4F752652B1016C900D2F768 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E4F752662B1016C900D2F768 /* Build configuration list for PBXNativeTarget "bigredbidsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E4F752672B1016C900D2F768 /* Debug */,
-				E4F752682B1016C900D2F768 /* Release */,
+				E4E77E202B16B70D00C06437 /* Debug */,
+				E4E77E212B16B70D00C06437 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E4F752342B1016C700D2F768 /* Project object */;
+	rootObject = E4E77E032B16B70C00C06437 /* Project object */;
 }
