@@ -14,6 +14,7 @@ class EventCollectionViewCell: UICollectionViewCell {
     private let eventImage = UIImageView()
     private let eventName = UILabel()
     private let dateLabel = UILabel()
+    private let dollarSignImage = UIImageView()
     private let highestBidLabel = UILabel()
     
     // MARK: - Properties (data)
@@ -39,6 +40,7 @@ class EventCollectionViewCell: UICollectionViewCell {
         setupEventImage()
         setupEventName()
         setupDate()
+        setupDollarSign()
         setupHighestBid()
     }
     
@@ -94,6 +96,20 @@ class EventCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    private func setupDollarSign() {
+        dollarSignImage.image = UIImage(named: "DollarSign")
+        
+        contentView.addSubview(dollarSignImage)
+        dollarSignImage.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            dollarSignImage.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 4),
+            dollarSignImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            dollarSignImage.heightAnchor.constraint(equalToConstant: 20),
+            dollarSignImage.widthAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+    
     private func setupHighestBid() {
         highestBidLabel.font = .systemFont(ofSize: 14, weight: .semibold).rounded
         highestBidLabel.textColor = .black
@@ -102,8 +118,8 @@ class EventCollectionViewCell: UICollectionViewCell {
         highestBidLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            highestBidLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 4),
-            highestBidLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            highestBidLabel.centerYAnchor.constraint(equalTo: dollarSignImage.centerYAnchor),
+            highestBidLabel.leadingAnchor.constraint(equalTo: dollarSignImage.trailingAnchor, constant: 8),
             highestBidLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
