@@ -14,6 +14,8 @@ class AppVC: UIViewController {
     
     private var eventCollectionView: UICollectionView!
     private var filterCollectionView: UICollectionView!
+    private var createEventButton = UIButton()
+    private var createButtonLabel = UILabel()
     private let refresh = UIRefreshControl()
     
     // MARK: - Properties (data)
@@ -21,8 +23,8 @@ class AppVC: UIViewController {
     private let filters = ["Events", "My Bids", "My Listings"]
     private var selectedFilterIndex: Int = 0
     private var user_id: Int
-    private var food: [Event] = Event.dummyData
-    private var filteredRecipes: [Event] = Event.dummyData
+    private var events: [Event] = Event.dummyData
+    private var filteredEvents: [Event] = Event.dummyData
 
     
 
@@ -31,15 +33,19 @@ class AppVC: UIViewController {
         // Do any additional setup after loading the view.
         
         title = "Big Red Bids"
-        
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.brb.red]
+        navigationController?.navigationBar.largeTitleTextAttributes = attributes
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         navigationController?.navigationBar.topItem?.backButtonTitle = "Logout"
         navigationController?.navigationBar.tintColor = UIColor.brb.red
         view.backgroundColor = UIColor.brb.white
         
         setupFilterCollectionView()
         setupEventCollectionView()
-        updateEventCollectionView(with: food)
+        updateEventCollectionView(with: events)
+        setupCreateEventButton()
+        setupCreateButtonLabel()
         //getData()
     }
     
@@ -55,10 +61,10 @@ class AppVC: UIViewController {
     // MARK: - Networking
     
     @objc private func getData() {
-        NetworkManager.shared.fetchData{ [weak self] food in
+        NetworkManager.shared.fetchData{ [weak self] events in
             guard let self = self else { return }
-            self.food = food
-            self.filteredRecipes = food
+            self.events = events
+            self.filteredEvents = events
             self.eventCollectionView.reloadData()
             self.refresh.endRefreshing()
             
@@ -119,11 +125,45 @@ class AppVC: UIViewController {
         ])
     }
     
+    private func setupCreateEventButton() {
+        createEventButton.layer.cornerRadius = 32
+        createEventButton.backgroundColor = UIColor.brb.red
+        createEventButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
+        createEventButton.layer.shadowOpacity = 1
+        createEventButton.layer.shadowRadius = 5
+        createEventButton.layer.shadowOffset = CGSize(width:2, height:2)
+        createEventButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(createEventButton)
+        
+        NSLayoutConstraint.activate([
+            createEventButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            createEventButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            createEventButton.heightAnchor.constraint(equalToConstant: 64),
+            createEventButton.widthAnchor.constraint(equalToConstant: 64)
+        ])
+        
+        createEventButton.addTarget(self, action: #selector(createEvent), for: .touchUpInside)
+        
+    }
+    
+    private func setupCreateButtonLabel() {
+        createButtonLabel.text = "+"
+        createButtonLabel.font = .systemFont(ofSize: 50, weight: .medium).rounded
+        createButtonLabel.textColor = UIColor.brb.white
+        createButtonLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(createButtonLabel)
+        
+        NSLayoutConstraint.activate([
+            createButtonLabel.centerXAnchor.constraint(equalTo: createEventButton.centerXAnchor),
+            createButtonLabel.centerYAnchor.constraint(equalTo: createEventButton.centerYAnchor, constant: -4)
+        ])
+    }
+    
     
     // MARK: - filtering
     
     private func updateEventCollectionView(with recipes: [Event]) {
-        food = recipes
+        events = recipes
         eventCollectionView.reloadData()
     }
     
@@ -132,7 +172,13 @@ class AppVC: UIViewController {
     private func applyFilter(at index: Int) {
         selectedFilterIndex = index
         filterCollectionView.reloadData()
-        updateEventCollectionView(with: filteredRecipes)
+        updateEventCollectionView(with: filteredEvents)
+    }
+    
+    @objc private func createEvent() {
+        print("Test")
+        
+        // TODO: Create new event screen when button is pressed
     }
 
 }
@@ -145,14 +191,14 @@ extension AppVC: UICollectionViewDelegate {
             let selectedFilter = filters[indexPath.row]
             selectedFilterIndex = indexPath.row
             if indexPath.row == 0 {
-                filteredRecipes = food
+                filteredEvents = events
             } else {
-                filteredRecipes = food.filter{ $0.difficulty == selectedFilter }
+                filteredEvents = events.filter{ $0.difficulty == selectedFilter }
             }
             filterCollectionView.reloadData()
             eventCollectionView.reloadData()
         } else {
-            let selectedRecipe = filteredRecipes[indexPath.item]
+            let selectedRecipe = filteredEvents[indexPath.item]
             let detailViewController = DetailedEventVC()
             detailViewController.configure(with: selectedRecipe)
             navigationController?.pushViewController(detailViewController, animated: true)
@@ -171,7 +217,7 @@ extension AppVC: UICollectionViewDataSource {
         if collectionView == filterCollectionView {
             return filters.count
         } else {
-            return filteredRecipes.count
+            return filteredEvents.count
         }
     }
     
@@ -186,7 +232,7 @@ extension AppVC: UICollectionViewDataSource {
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.reuse, for: indexPath) as! EventCollectionViewCell
-            let recipe = filteredRecipes[indexPath.item]
+            let recipe = filteredEvents[indexPath.item]
             cell.configure(with: recipe)
             return cell
         }

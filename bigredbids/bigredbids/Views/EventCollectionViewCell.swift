@@ -52,6 +52,7 @@ class EventCollectionViewCell: UICollectionViewCell {
     private func setupEventImage() {
         eventImage.layer.cornerRadius = 12
         eventImage.clipsToBounds = true
+        eventImage.contentMode = .scaleAspectFill
         
         contentView.addSubview(eventImage)
         eventImage.translatesAutoresizingMaskIntoConstraints = false
