@@ -70,6 +70,7 @@ class AppVC: UIViewController {
     private func setupFilterCollectionView() {
         let filterLayout = UICollectionViewFlowLayout()
         filterLayout.scrollDirection = .horizontal
+        
         filterCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: filterLayout)
         filterCollectionView.backgroundColor = UIColor.brb.red
         
@@ -93,6 +94,8 @@ class AppVC: UIViewController {
     private func setupEventCollectionView() {
         let eventlayout = UICollectionViewFlowLayout()
         eventlayout.scrollDirection = .vertical
+        eventlayout.minimumLineSpacing = 20
+        
         eventCollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: eventlayout)
         eventCollectionView.backgroundColor = UIColor.brb.white
         
@@ -187,7 +190,6 @@ extension AppVC: UICollectionViewDataSource {
             cell.configure(with: recipe)
             return cell
         }
-
     }
 }
 
@@ -201,7 +203,7 @@ extension AppVC: UICollectionViewDelegateFlowLayout {
             return CGSize(width: (collectionView.frame.width - 32) / 3, height: 250)
         } else {
             let size = collectionView.frame.width
-            return CGSize(width: size, height: 250)
+            return CGSize(width: size, height: 236)
         }
     }
     
