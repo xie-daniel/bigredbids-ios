@@ -23,6 +23,7 @@
 		E4E77E372B16BC6B00C06437 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E362B16BC6B00C06437 /* NetworkManager.swift */; };
 		E4E77E392B16BD5600C06437 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E382B16BD5600C06437 /* UIFont+Extension.swift */; };
 		E4E77E3B2B17FCA500C06437 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E3A2B17FCA400C06437 /* Event.swift */; };
+		E4E77E3D2B18F48A00C06437 /* CreateEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E3C2B18F48A00C06437 /* CreateEventVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		E4E77E362B16BC6B00C06437 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E4E77E382B16BD5600C06437 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		E4E77E3A2B17FCA400C06437 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		E4E77E3C2B18F48A00C06437 /* CreateEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				E4E77E2A2B16B85300C06437 /* AppVC.swift */,
+				E4E77E3C2B18F48A00C06437 /* CreateEventVC.swift */,
 				E4E77E122B16B70C00C06437 /* ViewController.swift */,
 				E4E77E332B16BAF000C06437 /* DetailedEventVC.swift */,
 			);
@@ -281,6 +284,7 @@
 				E4E77E0F2B16B70C00C06437 /* AppDelegate.swift in Sources */,
 				E4E77E112B16B70C00C06437 /* SceneDelegate.swift in Sources */,
 				E4E77E2B2B16B85300C06437 /* AppVC.swift in Sources */,
+				E4E77E3D2B18F48A00C06437 /* CreateEventVC.swift in Sources */,
 				E4E77E322B16BAAC00C06437 /* FilterCollectionViewCell.swift in Sources */,
 				E4E77E292B16B76C00C06437 /* UIColor+Extension.swift in Sources */,
 				E4E77E342B16BAF000C06437 /* DetailedEventVC.swift in Sources */,

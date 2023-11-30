@@ -25,7 +25,7 @@ extension Event {
             description: "This ropa vieja is great served on tortillas or over rice. Add sour cream, cheese, and fresh cilantro on the side.",
             difficulty: "Events",
             imageUrl: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F8368708.jpg&q=60&c=sc&orient=true&poi=auto&h=512",
-            name: "Cuban Ropa Vieja",
+            name: "Cornell Men's Hockey vs. Harvard",
             rating: 4.4
         ),
         Event(
@@ -33,7 +33,7 @@ extension Event {
             description: "You only need 3 ingredients for this crockpot Italian chicken with Italian dressing and Parmesan cheese. Nothing could be easier than this for a weekday meal that's ready when you get home.",
             difficulty: "My Bids",
             imageUrl: "https://www.allrecipes.com/thmb/cLLmeWO7j9YYI66vL3eZzUL_NKQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/7501402crockpot-italian-chicken-recipe-fabeveryday4x3-223051c7188841cb8fd7189958c62f3d.jpg",
-            name: "Crockpot Italian Chicken",
+            name: "Cornell Sketch Comedy Show",
             rating: 4.5
         ),
         Event(
@@ -41,7 +41,7 @@ extension Event {
             description: "This crockpot mac and cheese recipe is creamy, comforting, and takes just moments to assemble in a slow cooker. Great for large family gatherings and to take to potluck dinners. It's always a big hit!",
             difficulty: "My Listings",
             imageUrl: "https://www.allrecipes.com/thmb/wRSDpUgu8VR2PpQtjGq97cuk8Fo=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/237311-slow-cooker-mac-and-cheese-DDMFS-4x3-9b4a15f2c3344c1da22b034bc3b35683.jpg",
-            name: "Slow Cooker Mac and Cheese",
+            name: "mxmtoon Concert",
             rating: 4.3
         ),
         Event(
@@ -49,7 +49,7 @@ extension Event {
             description: "My mother was one of the best cooks I ever knew. Whenever she made stews we mostly found homemade dumplings in them. We never ate things from packages or microwaves and you sure could taste what food was. That's the only way I cook today - I don't use any electronic gadgets to cook with except an electric stove.",
             difficulty: "Events",
             imageUrl: "https://www.allrecipes.com/thmb/neJT4JLJz7ks8D0Rkvzf8fRufWY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/6900-dumplings-DDMFS-4x3-c03fe714205d4f24bd74b99768142864.jpg",
-            name: "Homemade Dumplings",
+            name: "Homecoming Football Game vs Colgate",
             rating: 4.7
         ),
         Event(

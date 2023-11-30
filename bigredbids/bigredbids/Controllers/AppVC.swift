@@ -157,13 +157,14 @@ class AppVC: UIViewController {
             createButtonLabel.centerXAnchor.constraint(equalTo: createEventButton.centerXAnchor),
             createButtonLabel.centerYAnchor.constraint(equalTo: createEventButton.centerYAnchor, constant: -4)
         ])
+        
     }
     
     
     // MARK: - filtering
     
-    private func updateEventCollectionView(with recipes: [Event]) {
-        events = recipes
+    private func updateEventCollectionView(with events: [Event]) {
+        self.events = events
         eventCollectionView.reloadData()
     }
     
@@ -176,9 +177,8 @@ class AppVC: UIViewController {
     }
     
     @objc private func createEvent() {
-        print("Test")
-        
-        // TODO: Create new event screen when button is pressed
+        let createVC = CreateEventVC(id: user_id)
+        navigationController?.pushViewController(createVC, animated: true)
     }
 
 }
@@ -232,8 +232,8 @@ extension AppVC: UICollectionViewDataSource {
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.reuse, for: indexPath) as! EventCollectionViewCell
-            let recipe = filteredEvents[indexPath.item]
-            cell.configure(with: recipe)
+            let event = filteredEvents[indexPath.item]
+            cell.configure(with: event)
             return cell
         }
     }

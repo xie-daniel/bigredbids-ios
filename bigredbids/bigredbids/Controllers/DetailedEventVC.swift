@@ -1,6 +1,6 @@
 //
 //  DetailedEventVC.swift
-//  A4
+//  bigredbids
 //
 //  Created by Byounghyun Lee on 2023/11/11.
 //
@@ -22,7 +22,7 @@ class DetailedEventVC: UIViewController {
     
     // MARK: - Properties (data)
     
-    var food: Event!
+    var event: Event!
     
     // MARK: - viewDidLoad and init
     
@@ -44,6 +44,7 @@ class DetailedEventVC: UIViewController {
     private func setupEventImage() {
         eventImage.layer.cornerRadius = 12
         eventImage.clipsToBounds = true
+        eventImage.contentMode = .scaleAspectFill
         
         view.addSubview(eventImage)
         eventImage.translatesAutoresizingMaskIntoConstraints = false
@@ -165,15 +166,25 @@ class DetailedEventVC: UIViewController {
     
     // MARK: - configure
     
-    func configure(with food: Event) {
-        eventImage.sd_setImage(with: URL(string: food.imageUrl))
-        eventNameLabel.text = food.name
-        eventDescriptionLabel.text = food.description
+    func configure(with event: Event) {
+        if (event.name.contains("Hockey") || event.name.contains("hockey")) {
+            eventImage.image = UIImage(named:"Hockey")
+        } else if (event.name.contains("Concert") || event.name.contains("concert")) {
+            eventImage.image = UIImage(named:"Concert")
+        } else if (event.name.contains("Show") || event.name.contains("show")) {
+            eventImage.image = UIImage(named:"Show")
+        } else if (event.name.contains("Football") || event.name.contains("football")) {
+            eventImage.image = UIImage(named:"Football")
+        } else {
+            eventImage.image = UIImage(named:"Default")
+        }
+        eventNameLabel.text = event.name
+        eventDescriptionLabel.text = event.description
         highestBidLabel.text = "Highest bid: " + "(data)"
         startingBidLabel.text = "Starting bid: " + "(data)"
         dateLabel.text = "(i.e. Nov 11 2023)"
         detailsTitleLabel.text = "Details"
-        self.food = food
+        self.event = event
     }
     
     // MARK: - Button Helpers

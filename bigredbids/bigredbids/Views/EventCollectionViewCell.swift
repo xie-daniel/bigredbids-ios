@@ -1,6 +1,6 @@
 //
 //  EventCollectionViewCell.swift
-//  A4
+//  bigredbids
 //
 //  Created by Byounghyun Lee on 2023/11/11.
 //
@@ -18,7 +18,7 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties (data)
     
-    private var food: Event!
+    private var event: Event!
     
     static let reuse: String = "EventCollectionViewCellReuse"
     
@@ -111,12 +111,25 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Button Helpers
     
-    func configure(with food: Event) {
-        eventImage.sd_setImage(with: URL(string: food.imageUrl))
-        eventName.text = food.name
-        dateLabel.text = "\(food.rating) ∙ \(food.difficulty)"
+    func configure(with event: Event) {
+        
+        self.event = event
+        
+        if (event.name.contains("Hockey") || event.name.contains("hockey")) {
+            eventImage.image = UIImage(named:"Hockey")
+        } else if (event.name.contains("Concert") || event.name.contains("concert")) {
+            eventImage.image = UIImage(named:"Concert")
+        } else if (event.name.contains("Show") || event.name.contains("show")) {
+            eventImage.image = UIImage(named:"Show")
+        } else if (event.name.contains("Football") || event.name.contains("football")) {
+            eventImage.image = UIImage(named:"Football")
+        } else {
+            eventImage.image = UIImage(named:"Default")
+        }
+        
+        eventName.text = event.name
+        dateLabel.text = "\(event.rating) ∙ \(event.difficulty)"
         highestBidLabel.text = "Highest bid: " + "(data)"
-        self.food = food
     }
     
     
