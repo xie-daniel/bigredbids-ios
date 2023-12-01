@@ -167,18 +167,18 @@ class DetailedEventVC: UIViewController {
     // MARK: - configure
     
     func configure(with event: Event) {
-        if (event.name.contains("Hockey") || event.name.contains("hockey")) {
+        if (event.title.contains("Hockey") || event.title.contains("hockey")) {
             eventImage.image = UIImage(named:"Hockey")
-        } else if (event.name.contains("Concert") || event.name.contains("concert")) {
+        } else if (event.title.contains("Concert") || event.title.contains("concert")) {
             eventImage.image = UIImage(named:"Concert")
-        } else if (event.name.contains("Show") || event.name.contains("show")) {
+        } else if (event.title.contains("Show") || event.title.contains("show")) {
             eventImage.image = UIImage(named:"Show")
-        } else if (event.name.contains("Football") || event.name.contains("football")) {
+        } else if (event.title.contains("Football") || event.title.contains("football")) {
             eventImage.image = UIImage(named:"Football")
         } else {
             eventImage.image = UIImage(named:"Default")
         }
-        eventNameLabel.text = event.name
+        eventNameLabel.text = event.title
         eventDescriptionLabel.text = event.description
         highestBidLabel.text = "Highest bid: " + "(data)"
         startingBidLabel.text = "Starting bid: " + "(data)"

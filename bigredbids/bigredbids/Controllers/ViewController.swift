@@ -27,15 +27,13 @@ class ViewController: UIViewController {
     
     // MARK: - Properties (data)
     
-    private var users: [User] = User.dummyData
+    //private var users: [Users] = Users.dummyData
     
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //title = "Big Red Bids"
-        //navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = UIColor.brb.white
         
         setupTopRectangle()
@@ -229,19 +227,31 @@ class ViewController: UIViewController {
     }
     
     @objc private func checkValidLogin() {
-        for user in users {
-            if (user.username == loginUsername.text && user.password_hash == loginPassword.text) {
-                let appVC = AppVC(id: user.id)
-                navigationController?.pushViewController(appVC, animated: true)
-            } else {
-                setupIncorrectLogin()
-                loginUsername.text = ""
-                loginPassword.text = ""
+        if let username = loginUsername.text {
+            if let password = loginPassword.text {
+                NetworkManager.shared.tryLogin(username: username, password: password) { [weak self] success in guard let self = self else {
+                        self?.setupIncorrectLogin()
+                        self?.loginUsername.text = ""
+                        self?.loginPassword.text = ""
+                        return
+                    }
+                    let appVC = AppVC(user: success)
+                    navigationController?.pushViewController(appVC, animated: true)
+                    
+                }
             }
         }
+        
     }
     
     @objc private func createAccount() {
-        // TODO: implement w/ backend
+        
+        NetworkManager.shared.createUser(username: createUsername.text ?? "", password: createPassword.text ?? "") { [weak self] success in guard let self = self else { return }
+            createUsername.text = ""
+            createPassword.text = ""
+            
+            //users.append(success) //TODO: fix once users/user combined
+        }
+        
     }
 }

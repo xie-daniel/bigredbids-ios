@@ -16,10 +16,12 @@ class EventCollectionViewCell: UICollectionViewCell {
     private let dateLabel = UILabel()
     private let dollarSignImage = UIImageView()
     private let highestBidLabel = UILabel()
+    private let yourBidLabel = UILabel()
     
     // MARK: - Properties (data)
     
     private var event: Event!
+    private var userId: Int!
     
     static let reuse: String = "EventCollectionViewCellReuse"
     
@@ -123,28 +125,38 @@ class EventCollectionViewCell: UICollectionViewCell {
             highestBidLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
+    
+    private func setupYourBid() {
+        yourBidLabel.text = "Your bid is "
+        
+    }
 
     
     // MARK: - Button Helpers
     
-    func configure(with event: Event) {
+    func configure(with event: Event, id: Int) {
         
+        self.userId = id
         self.event = event
         
-        if (event.name.contains("Hockey") || event.name.contains("hockey")) {
+        if (event.title.contains("Hockey") || event.title.contains("hockey")) {
             eventImage.image = UIImage(named:"Hockey")
-        } else if (event.name.contains("Concert") || event.name.contains("concert")) {
+        } else if (event.title.contains("Concert") || event.title.contains("concert")) {
             eventImage.image = UIImage(named:"Concert")
-        } else if (event.name.contains("Show") || event.name.contains("show")) {
+        } else if (event.title.contains("Show") || event.title.contains("show")) {
             eventImage.image = UIImage(named:"Show")
-        } else if (event.name.contains("Football") || event.name.contains("football")) {
+        } else if (event.title.contains("Football") || event.title.contains("football")) {
             eventImage.image = UIImage(named:"Football")
         } else {
             eventImage.image = UIImage(named:"Default")
         }
         
-        eventName.text = event.name
-        dateLabel.text = "\(event.rating) ∙ \(event.difficulty)"
+        if (event.bids.contains(userId)) {
+            setupYourBid()
+        }
+        
+        eventName.text = event.title
+        dateLabel.text = "\(event.date) ∙ \(event.status)"
         highestBidLabel.text = "Highest bid: " + "(data)"
     }
     

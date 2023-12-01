@@ -20,6 +20,9 @@ class CreateEventVC: UIViewController {
     private let startingBidField = UITextField()
     private let descriptionLabel = UILabel()
     private let descriptionField = UITextView()
+    private let createAuctionButton = UIButton()
+    private let invalidBidText = UILabel()
+    private let invalidNameDateLabel = UILabel()
     
     // MARK: - Properties (data)
     
@@ -33,6 +36,7 @@ class CreateEventVC: UIViewController {
         title = "Create Auction"
         let attributes = [NSAttributedString.Key.foregroundColor: UIColor.brb.red]
         navigationController?.navigationBar.largeTitleTextAttributes = attributes
+        navigationController?.navigationBar.topItem?.backButtonTitle = "Events"
         view.backgroundColor = UIColor.brb.white
         
         setupNameLabel()
@@ -43,6 +47,7 @@ class CreateEventVC: UIViewController {
         setupStartingBidField()
         setupDescriptionLabel()
         setupDescriptionField()
+        setupCreateAuctionButton()
         
     }
     
@@ -66,7 +71,7 @@ class CreateEventVC: UIViewController {
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
-            nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 160)
+            nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 168)
         ])
     }
     private func setupNameField() {
@@ -93,7 +98,7 @@ class CreateEventVC: UIViewController {
         NSLayoutConstraint.activate([
             dateLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             dateLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
-            dateLabel.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 12)
+            dateLabel.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 16)
         ])
     }
     
@@ -120,7 +125,7 @@ class CreateEventVC: UIViewController {
         
         NSLayoutConstraint.activate([
             startingBidLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            startingBidLabel.topAnchor.constraint(equalTo: dateField.bottomAnchor, constant: 20)
+            startingBidLabel.topAnchor.constraint(equalTo: dateField.bottomAnchor, constant: 24)
         ])
     }
     
@@ -148,7 +153,7 @@ class CreateEventVC: UIViewController {
         NSLayoutConstraint.activate([
             descriptionLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
-            descriptionLabel.topAnchor.constraint(equalTo: startingBidField.bottomAnchor, constant: 12)
+            descriptionLabel.topAnchor.constraint(equalTo: startingBidField.bottomAnchor, constant: 16)
         ])
     }
     
@@ -168,5 +173,76 @@ class CreateEventVC: UIViewController {
             descriptionField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 4),
             descriptionField.heightAnchor.constraint(equalToConstant: 160)
         ])
+    }
+    
+    private func setupCreateAuctionButton() {
+        createAuctionButton.backgroundColor = UIColor.brb.red
+        createAuctionButton.layer.cornerRadius = 24
+        createAuctionButton.setTitle("Create Auction", for: .normal)
+        createAuctionButton.setTitleColor(UIColor.brb.white, for: .normal)
+        createAuctionButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
+        createAuctionButton.addTarget(self, action: #selector(createAuction), for: .touchUpInside)
+        
+        view.addSubview(createAuctionButton)
+        createAuctionButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            createAuctionButton.topAnchor.constraint(equalTo: descriptionField.bottomAnchor, constant: 24),
+            createAuctionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            createAuctionButton.widthAnchor.constraint(equalToConstant: 224),
+            createAuctionButton.heightAnchor.constraint(equalToConstant: 48),
+        ])
+    }
+    
+    private func setupInvalidBid() {
+        invalidBidText.text = "Invalid bid: must be non-negative integer"
+        invalidBidText.font = .systemFont(ofSize: 12, weight: .regular)
+        invalidBidText.textColor = UIColor.red
+        
+        invalidBidText.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(invalidBidText)
+        
+        NSLayoutConstraint.activate([
+            invalidBidText.leadingAnchor.constraint(equalTo: startingBidField.leadingAnchor),
+            invalidBidText.topAnchor.constraint(equalTo: startingBidField.bottomAnchor, constant: 4)
+        ])
+    }
+    
+    private func setupInvalidNameDate() {
+        invalidNameDateLabel.text = "Please provide name and date for the event"
+        invalidNameDateLabel.font = .systemFont(ofSize: 12, weight: .regular)
+        invalidNameDateLabel.textColor = UIColor.red
+        
+        invalidNameDateLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(invalidNameDateLabel)
+        
+        NSLayoutConstraint.activate([
+            invalidNameDateLabel.centerXAnchor.constraint(equalTo: createAuctionButton.centerXAnchor),
+            invalidNameDateLabel.topAnchor.constraint(equalTo: createAuctionButton.bottomAnchor, constant: 8)
+        ])
+    }
+    
+    // MARK: - Button helpers
+    
+    @objc func createAuction() {
+        // TODO: add auction logic
+        
+        if let startingBid = Int(startingBidField.text ?? "e") {
+            if (startingBid >= 0) {
+                if (nameField.text != "" && dateField.text != "") {
+                    NetworkManager.shared.createAuction(name: nameField.text ?? "Default", date: dateField.text ?? "Default", startingBid: startingBid, description: descriptionField.text ?? "", userId: userID) { [weak self] success in
+                        guard let self = self else { return }
+                        navigationController?.popViewController(animated: true)
+                    }
+                } else {
+                    setupInvalidNameDate()
+                }
+            } else {
+                setupInvalidBid()
+            }
+        } else {
+            setupInvalidBid()
+        }
+        
     }
 }

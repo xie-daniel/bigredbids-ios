@@ -22,9 +22,9 @@ class AppVC: UIViewController {
     
     private let filters = ["Events", "My Bids", "My Listings"]
     private var selectedFilterIndex: Int = 0
-    private var user_id: Int
-    private var events: [Event] = Event.dummyData
-    private var filteredEvents: [Event] = Event.dummyData
+    private var user: Users
+    private var events: [Event] = []
+    private var filteredEvents: [Event] = []
 
     
 
@@ -41,16 +41,17 @@ class AppVC: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor.brb.red
         view.backgroundColor = UIColor.brb.white
         
+        getData()
+        
         setupFilterCollectionView()
         setupEventCollectionView()
         updateEventCollectionView(with: events)
         setupCreateEventButton()
         setupCreateButtonLabel()
-        //getData()
     }
     
-    init (id: Int) {
-        user_id = id
+    init (user: Users) {
+        self.user = user
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -61,7 +62,7 @@ class AppVC: UIViewController {
     // MARK: - Networking
     
     @objc private func getData() {
-        NetworkManager.shared.fetchData{ [weak self] events in
+        NetworkManager.shared.fetchAuctions { [weak self] events in
             guard let self = self else { return }
             self.events = events
             self.filteredEvents = events
@@ -177,7 +178,7 @@ class AppVC: UIViewController {
     }
     
     @objc private func createEvent() {
-        let createVC = CreateEventVC(id: user_id)
+        let createVC = CreateEventVC(id: user.id)
         navigationController?.pushViewController(createVC, animated: true)
     }
 
@@ -188,12 +189,14 @@ class AppVC: UIViewController {
 extension AppVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == filterCollectionView {
-            let selectedFilter = filters[indexPath.row]
+            //let selectedFilter = filters[indexPath.row]
             selectedFilterIndex = indexPath.row
             if indexPath.row == 0 {
                 filteredEvents = events
+            } else if indexPath.row == 1 {
+                filteredEvents = events.filter{ $0.bids.contains(user.id) }
             } else {
-                filteredEvents = events.filter{ $0.difficulty == selectedFilter }
+                filteredEvents = events.filter{ $0.seller == user.id }
             }
             filterCollectionView.reloadData()
             eventCollectionView.reloadData()
@@ -233,7 +236,7 @@ extension AppVC: UICollectionViewDataSource {
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.reuse, for: indexPath) as! EventCollectionViewCell
             let event = filteredEvents[indexPath.item]
-            cell.configure(with: event)
+            cell.configure(with: event, id: user.id)
             return cell
         }
     }

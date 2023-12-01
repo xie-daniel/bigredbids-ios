@@ -13,7 +13,6 @@
 		E4E77E132B16B70C00C06437 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E122B16B70C00C06437 /* ViewController.swift */; };
 		E4E77E182B16B70D00C06437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4E77E172B16B70D00C06437 /* Assets.xcassets */; };
 		E4E77E1B2B16B70D00C06437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E77E192B16B70D00C06437 /* LaunchScreen.storyboard */; };
-		E4E77E272B16B75500C06437 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E262B16B75500C06437 /* User.swift */; };
 		E4E77E292B16B76C00C06437 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E282B16B76C00C06437 /* UIColor+Extension.swift */; };
 		E4E77E2B2B16B85300C06437 /* AppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E2A2B16B85300C06437 /* AppVC.swift */; };
 		E4E77E2D2B16B88600C06437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4E77E2C2B16B88600C06437 /* Main.storyboard */; };
@@ -24,6 +23,8 @@
 		E4E77E392B16BD5600C06437 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E382B16BD5600C06437 /* UIFont+Extension.swift */; };
 		E4E77E3B2B17FCA500C06437 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E3A2B17FCA400C06437 /* Event.swift */; };
 		E4E77E3D2B18F48A00C06437 /* CreateEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E3C2B18F48A00C06437 /* CreateEventVC.swift */; };
+		E4E77E412B1AA6C700C06437 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E402B1AA6C700C06437 /* Users.swift */; };
+		E4E77E432B1AA6E600C06437 /* Bid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E77E422B1AA6E600C06437 /* Bid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +38,6 @@
 		E4E77E172B16B70D00C06437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4E77E1A2B16B70D00C06437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4E77E1C2B16B70D00C06437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4E77E262B16B75500C06437 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E4E77E282B16B76C00C06437 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		E4E77E2A2B16B85300C06437 /* AppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVC.swift; sourceTree = "<group>"; };
 		E4E77E2C2B16B88600C06437 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -48,6 +48,8 @@
 		E4E77E382B16BD5600C06437 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		E4E77E3A2B17FCA400C06437 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E4E77E3C2B18F48A00C06437 /* CreateEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventVC.swift; sourceTree = "<group>"; };
+		E4E77E402B1AA6C700C06437 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		E4E77E422B1AA6E600C06437 /* Bid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +129,9 @@
 		E4E77E242B16B72A00C06437 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E4E77E262B16B75500C06437 /* User.swift */,
 				E4E77E3A2B17FCA400C06437 /* Event.swift */,
+				E4E77E402B1AA6C700C06437 /* Users.swift */,
+				E4E77E422B1AA6E600C06437 /* Bid.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -276,16 +279,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4E77E272B16B75500C06437 /* User.swift in Sources */,
 				E4E77E302B16BA9F00C06437 /* EventCollectionViewCell.swift in Sources */,
 				E4E77E372B16BC6B00C06437 /* NetworkManager.swift in Sources */,
 				E4E77E132B16B70C00C06437 /* ViewController.swift in Sources */,
 				E4E77E3B2B17FCA500C06437 /* Event.swift in Sources */,
 				E4E77E0F2B16B70C00C06437 /* AppDelegate.swift in Sources */,
+				E4E77E432B1AA6E600C06437 /* Bid.swift in Sources */,
 				E4E77E112B16B70C00C06437 /* SceneDelegate.swift in Sources */,
 				E4E77E2B2B16B85300C06437 /* AppVC.swift in Sources */,
 				E4E77E3D2B18F48A00C06437 /* CreateEventVC.swift in Sources */,
 				E4E77E322B16BAAC00C06437 /* FilterCollectionViewCell.swift in Sources */,
+				E4E77E412B1AA6C700C06437 /* Users.swift in Sources */,
 				E4E77E292B16B76C00C06437 /* UIColor+Extension.swift in Sources */,
 				E4E77E342B16BAF000C06437 /* DetailedEventVC.swift in Sources */,
 				E4E77E392B16BD5600C06437 /* UIFont+Extension.swift in Sources */,
