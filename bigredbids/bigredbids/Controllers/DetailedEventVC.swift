@@ -263,7 +263,7 @@ class DetailedEventVC: UIViewController {
         }
         
     }
-    
+
     private func findHighestBid() -> Int {
         var highest = 0
         for bidId in event.bids {

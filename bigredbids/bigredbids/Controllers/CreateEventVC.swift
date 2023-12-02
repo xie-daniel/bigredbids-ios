@@ -225,7 +225,6 @@ class CreateEventVC: UIViewController {
     // MARK: - Button helpers
     
     @objc func createAuction() {
-        // TODO: add auction logic
         
         if let startingBid = Int(startingBidField.text ?? "e") {
             if (startingBid >= 0) {

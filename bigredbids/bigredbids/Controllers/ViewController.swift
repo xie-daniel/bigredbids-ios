@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     private let createPassword = UITextField()
     private let createButton = UIButton()
     private let incorrectLoginText = UILabel()
+    private let successText = UILabel()
     
     // MARK: - Properties (data)
     
@@ -225,22 +226,29 @@ class ViewController: UIViewController {
         ])
     }
     
+    private func setupSuccessfulCreate() {
+        successText.text = "Account successfully created"
+        successText.font = .systemFont(ofSize: 12, weight: .regular)
+        successText.textColor = UIColor.brb.green
+        
+        successText.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(successText)
+        
+        NSLayoutConstraint.activate([
+            successText.centerXAnchor.constraint(equalTo: createButton.centerXAnchor),
+            successText.topAnchor.constraint(equalTo: createButton.bottomAnchor, constant: 12)
+        ])
+    }
+    
     @objc private func checkValidLogin() {
         if let username = loginUsername.text {
             if let password = loginPassword.text {
-                NetworkManager.shared.tryLogin(username: username, password: password) { [weak self] success in guard let self = self else {
-                        self?.setupIncorrectLogin()
-                        self?.loginUsername.text = ""
-                        self?.loginPassword.text = ""
-                        return
-                    }
+                NetworkManager.shared.tryLogin(username: username, password: password) { [weak self] success in guard let self = self else { return }
                     let appVC = AppVC(user: success)
                     navigationController?.pushViewController(appVC, animated: true)
-                    
                 }
             }
         }
-        
     }
     
     @objc private func createAccount() {
@@ -248,7 +256,7 @@ class ViewController: UIViewController {
         NetworkManager.shared.createUser(username: createUsername.text ?? "", password: createPassword.text ?? "") { [weak self] success in guard let self = self else { return }
             createUsername.text = ""
             createPassword.text = ""
-        
+            setupSuccessfulCreate()
         }
         
     }

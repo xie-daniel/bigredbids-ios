@@ -12,4 +12,5 @@ struct Users: Codable {
     let username: String
     let auctions: [Int] // event id
     let bids: [Int] // bid ids
+    
 }

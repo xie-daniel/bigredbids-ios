@@ -194,7 +194,6 @@ class AppVC: UIViewController {
 extension AppVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == filterCollectionView {
-            //let selectedFilter = filters[indexPath.row]
             selectedFilterIndex = indexPath.row
             if indexPath.row == 0 {
                 filteredEvents = events
@@ -241,7 +240,7 @@ extension AppVC: UICollectionViewDataSource {
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventCollectionViewCell.reuse, for: indexPath) as! EventCollectionViewCell
             let event = filteredEvents[indexPath.item]
-            cell.configure(with: event, id: user.id)
+            cell.configure(with: event, user: user)
             return cell
         }
     }

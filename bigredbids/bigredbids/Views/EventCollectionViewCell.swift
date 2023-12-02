@@ -22,7 +22,8 @@ class EventCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties (data)
     
     private var event: Event!
-    private var userId: Int!
+    private var user: Users!
+    private var yourHighestBid = -1
     
     static let reuse: String = "EventCollectionViewCellReuse"
     
@@ -142,17 +143,28 @@ class EventCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    private func setupYourBid() {
-        yourBidLabel.text = "Your bid is "
+    private func setupYourBid(yourBid: Int) {
+        yourBidLabel.text = "Your bid is $\(yourBid)"
+        yourBidLabel.font = .systemFont(ofSize: 14, weight: .semibold).rounded
+        yourBidLabel.textColor = .black
+        
+        contentView.addSubview(yourBidLabel)
+        yourBidLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            yourBidLabel.centerYAnchor.constraint(equalTo: highestBidLabel.centerYAnchor),
+            yourBidLabel.leadingAnchor.constraint(equalTo: highestBidLabel.trailingAnchor, constant: 12),
+            yourBidLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
         
     }
 
     
-    // MARK: - Button Helpers
+    // MARK: - Helpers
     
-    func configure(with event: Event, id: Int) {
+    func configure(with event: Event, user: Users) {
         
-        self.userId = id
+        self.user = user
         self.event = event
         
         if (event.title.contains("Hockey") || event.title.contains("hockey")) {
@@ -167,10 +179,6 @@ class EventCollectionViewCell: UICollectionViewCell {
             eventImage.image = UIImage(named:"Default")
         }
         
-        if (event.bids.contains(userId)) {
-            setupYourBid()
-        }
-        
         eventName.text = event.title
         dateLabel.text = "\(event.date)"
         
@@ -180,7 +188,5 @@ class EventCollectionViewCell: UICollectionViewCell {
             highestBidLabel.text = "Highest bid: $\(event.highestBid)"
         }
     }
-    
-    
     
 }

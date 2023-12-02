@@ -20,6 +20,7 @@ extension UIColor {
         let red = UIColor(red: 0.75, green: 0.06, blue: 0.06, alpha: 1)
         let crimson = UIColor(red: 0.69, green: 0.1, blue: 0.1, alpha: 1)
         let pink = UIColor(red: 1, green: 0.4, blue: 0.4, alpha: 1)
+        let green = UIColor(red: 0.2, green: 0.7, blue: 0.1, alpha: 1)
     }
 
 }
