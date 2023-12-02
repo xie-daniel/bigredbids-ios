@@ -19,10 +19,14 @@ class DetailedEventVC: UIViewController {
     private let detailsTitleLabel = UILabel()
     private let dateLabel = UILabel()
     private let bidButton = UIButton()
+    private let endButton = UIButton()
+    private let cancelButton = UIButton()
     
     // MARK: - Properties (data)
     
     var event: Event!
+    var user: Users!
+    var highestBid: Int = 0
     
     // MARK: - viewDidLoad and init
     
@@ -38,7 +42,12 @@ class DetailedEventVC: UIViewController {
         setupStartingBidLabel()
         setupDetailsTitleLabel()
         setupEventDescriptionLabel()
-        setupBidButton()
+        if (user.id != event.seller) {
+            setupBidButton()
+        } else {
+            setupEndButton()
+            setupCancelButton()
+        }
     }
     
     private func setupEventImage() {
@@ -145,28 +154,68 @@ class DetailedEventVC: UIViewController {
     }
     
     private func setupBidButton() {
-        bidButton.backgroundColor = UIColor.brb.crimson
-        bidButton.layer.cornerRadius = 4
-        bidButton.setTitle("Place a bid", for: .normal)
+        bidButton.backgroundColor = UIColor.brb.red
+        bidButton.layer.cornerRadius = 20
         bidButton.setTitleColor(UIColor.brb.white, for: .normal)
-        bidButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        bidButton.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
         bidButton.addTarget(self, action: #selector(createBid), for: .touchUpInside)
         
         view.addSubview(bidButton)
         bidButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            bidButton.topAnchor.constraint(equalTo: eventDescriptionLabel.bottomAnchor, constant: 15),
+            bidButton.topAnchor.constraint(equalTo: eventDescriptionLabel.bottomAnchor, constant: 24),
             bidButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            bidButton.widthAnchor.constraint(equalToConstant: 96),
-            bidButton.heightAnchor.constraint(equalToConstant: 32),
+            bidButton.widthAnchor.constraint(equalToConstant: 188),
+            bidButton.heightAnchor.constraint(equalToConstant: 40),
         ])
     }
     
+    private func setupEndButton() {
+        endButton.backgroundColor = UIColor.brb.red
+        endButton.setTitle("End Auction", for: .normal)
+        endButton.layer.cornerRadius = 16
+        endButton.setTitleColor(UIColor.brb.white, for: .normal)
+        endButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        endButton.addTarget(self, action: #selector(endAuction), for: .touchUpInside)
+        
+        view.addSubview(endButton)
+        endButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            endButton.topAnchor.constraint(equalTo: eventDescriptionLabel.bottomAnchor, constant: 24),
+            endButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            endButton.widthAnchor.constraint(equalToConstant: 152),
+            endButton.heightAnchor.constraint(equalToConstant: 32),
+        ])
+    }
+    
+    private func setupCancelButton() {
+        cancelButton.backgroundColor = UIColor.brb.red
+        cancelButton.setTitle("Cancel Auction", for: .normal)
+        cancelButton.layer.cornerRadius = 16
+        cancelButton.setTitleColor(UIColor.brb.white, for: .normal)
+        cancelButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        cancelButton.addTarget(self, action: #selector(endAuction), for: .touchUpInside)
+        
+        view.addSubview(cancelButton)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: eventDescriptionLabel.bottomAnchor, constant: 24),
+            cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+            cancelButton.widthAnchor.constraint(equalToConstant: 152),
+            cancelButton.heightAnchor.constraint(equalToConstant: 32),
+        ])
+    }
     
     // MARK: - configure
     
-    func configure(with event: Event) {
+    func configure(with event: Event, user: Users) {
+        
+        self.event = event
+        self.user = user
+        
         if (event.title.contains("Hockey") || event.title.contains("hockey")) {
             eventImage.image = UIImage(named:"Hockey")
         } else if (event.title.contains("Concert") || event.title.contains("concert")) {
@@ -180,19 +229,56 @@ class DetailedEventVC: UIViewController {
         }
         eventNameLabel.text = event.title
         eventDescriptionLabel.text = event.description
-        highestBidLabel.text = "Highest bid: " + "(data)"
-        startingBidLabel.text = "Starting bid: " + "(data)"
-        dateLabel.text = "(i.e. Nov 11 2023)"
+        
+        highestBid = event.highestBid
+        if (event.bids.count == 0) {
+            highestBidLabel.text = "Highest bid: No bidders!"
+            bidButton.setTitle("Place $\(event.startingBid) bid", for: .normal)
+        } else {
+            highestBidLabel.text = "Highest bid: $\(event.highestBid)"
+            bidButton.setTitle("Place $\(event.highestBid + 5) bid", for: .normal)
+        }
+        
+        startingBidLabel.text = "Starting bid: $\(event.startingBid)"
+        dateLabel.text = event.date
         detailsTitleLabel.text = "Details"
-        self.event = event
+        
     }
     
-    // MARK: - Button Helpers
+    // MARK: - Helpers
     
     @objc private func createBid() {
         // TODO: Send a POST request to place a bid
         
+        let bidAmount: Int
+        if (event.bids.count == 0) {
+            bidAmount = event.startingBid
+        } else {
+            bidAmount = highestBid + 5
+        }
+        NetworkManager.shared.placeBid(amount: bidAmount, userId: user.id, eventId: event.id) {
+            [weak self] success in guard let self = self else { return }
+            print("placed bid")
+            navigationController?.popViewController(animated: true)
+        }
         
     }
     
+    private func findHighestBid() -> Int {
+        var highest = 0
+        for bidId in event.bids {
+            NetworkManager.shared.getBid(bidId: bidId) { [weak self] success in guard let self = self else { return }
+                if (success.amount > highestBid) {
+                    highest = success.amount
+                }
+            }
+        }
+        return highest
+    }
+    
+    @objc private func endAuction() {
+        NetworkManager.shared.deleteAuction(auctionId: event.id) { [weak self] success in guard let self = self else { return }
+            navigationController?.popViewController(animated: true)
+        }
+    }
 }

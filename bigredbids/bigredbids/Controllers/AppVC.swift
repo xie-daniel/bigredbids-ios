@@ -27,7 +27,6 @@ class AppVC: UIViewController {
     private var filteredEvents: [Event] = []
 
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -48,6 +47,12 @@ class AppVC: UIViewController {
         updateEventCollectionView(with: events)
         setupCreateEventButton()
         setupCreateButtonLabel()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getData()
+        eventCollectionView.reloadData()
     }
     
     init (user: Users) {
@@ -203,7 +208,7 @@ extension AppVC: UICollectionViewDelegate {
         } else {
             let selectedRecipe = filteredEvents[indexPath.item]
             let detailViewController = DetailedEventVC()
-            detailViewController.configure(with: selectedRecipe)
+            detailViewController.configure(with: selectedRecipe, user: user)
             navigationController?.pushViewController(detailViewController, animated: true)
         }
         
@@ -252,7 +257,7 @@ extension AppVC: UICollectionViewDelegateFlowLayout {
             return CGSize(width: (collectionView.frame.width - 32) / 3, height: 250)
         } else {
             let size = collectionView.frame.width
-            return CGSize(width: size, height: 236)
+            return CGSize(width: size, height: 244)
         }
     }
     

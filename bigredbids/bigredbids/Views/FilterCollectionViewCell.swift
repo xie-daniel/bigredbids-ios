@@ -73,8 +73,8 @@ class FilterCollectionViewCell: UICollectionViewCell {
     // MARK: - Button Helpers
     
     @objc private func filterButtonTapped() {
-        //isSelected = !isSelected
-        //configure(with: filter, isselected: true, firstConfigure: false)
+        isSelected = !isSelected
+        configure(with: filter, isselected: true)
     }
     
     // MARK: - Configure

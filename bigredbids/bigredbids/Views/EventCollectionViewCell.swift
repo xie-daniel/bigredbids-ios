@@ -13,6 +13,7 @@ class EventCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties (view)
     private let eventImage = UIImageView()
     private let eventName = UILabel()
+    private let dateIcon = UIImageView()
     private let dateLabel = UILabel()
     private let dollarSignImage = UIImageView()
     private let highestBidLabel = UILabel()
@@ -41,6 +42,7 @@ class EventCollectionViewCell: UICollectionViewCell {
         
         setupEventImage()
         setupEventName()
+        setupDateIcon()
         setupDate()
         setupDollarSign()
         setupHighestBid()
@@ -73,6 +75,7 @@ class EventCollectionViewCell: UICollectionViewCell {
         eventName.numberOfLines = 3
         eventName.font = .systemFont(ofSize: 18, weight: .semibold).rounded
         eventName.textColor = .black
+        eventName.numberOfLines = 1
         
         contentView.addSubview(eventName)
         eventName.translatesAutoresizingMaskIntoConstraints = false
@@ -84,16 +87,29 @@ class EventCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    private func setupDateIcon() {
+        dateIcon.image = UIImage(named:"CalendarBlack")
+        contentView.addSubview(dateIcon)
+        dateIcon.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            dateIcon.topAnchor.constraint(equalTo: eventName.bottomAnchor, constant: 6),
+            dateIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            dateIcon.heightAnchor.constraint(equalToConstant: 20),
+            dateIcon.widthAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+    
     private func setupDate() {
-        dateLabel.font = .systemFont(ofSize: 12).rounded
+        dateLabel.font = .systemFont(ofSize: 14, weight: .semibold).rounded
         dateLabel.textColor = .gray
         
         contentView.addSubview(dateLabel)
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            dateLabel.topAnchor.constraint(equalTo: eventName.bottomAnchor, constant: 4),
-            dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            dateLabel.centerYAnchor.constraint(equalTo: dateIcon.centerYAnchor),
+            dateLabel.leadingAnchor.constraint(equalTo: dateIcon.trailingAnchor, constant: 8),
             dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
@@ -105,7 +121,7 @@ class EventCollectionViewCell: UICollectionViewCell {
         dollarSignImage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            dollarSignImage.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 4),
+            dollarSignImage.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 8),
             dollarSignImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             dollarSignImage.heightAnchor.constraint(equalToConstant: 20),
             dollarSignImage.widthAnchor.constraint(equalToConstant: 20)
@@ -156,8 +172,13 @@ class EventCollectionViewCell: UICollectionViewCell {
         }
         
         eventName.text = event.title
-        dateLabel.text = "\(event.date) ∙ \(event.status)"
-        highestBidLabel.text = "Highest bid: " + "(data)"
+        dateLabel.text = "\(event.date)"
+        
+        if (event.bids.count == 0) {
+            highestBidLabel.text = "Highest bid: No bidders!"
+        } else {
+            highestBidLabel.text = "Highest bid: $\(event.highestBid)"
+        }
     }
     
     

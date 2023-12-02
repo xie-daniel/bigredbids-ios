@@ -27,7 +27,6 @@ class ViewController: UIViewController {
     
     // MARK: - Properties (data)
     
-    //private var users: [Users] = Users.dummyData
     
     // MARK: - viewDidLoad
     
@@ -249,8 +248,7 @@ class ViewController: UIViewController {
         NetworkManager.shared.createUser(username: createUsername.text ?? "", password: createPassword.text ?? "") { [weak self] success in guard let self = self else { return }
             createUsername.text = ""
             createPassword.text = ""
-            
-            //users.append(success) //TODO: fix once users/user combined
+        
         }
         
     }

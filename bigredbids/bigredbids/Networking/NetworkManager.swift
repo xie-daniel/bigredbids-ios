@@ -9,22 +9,22 @@ import Alamofire
 import Foundation
 
 class NetworkManager {
-
+    
     /// Shared singleton instance
     static let shared = NetworkManager()
-
+    
     private let decoder = JSONDecoder()
-
+    
     private init() { }
-
+    
     // MARK: - Requests
-
+    
     func fetchAuctions(completion: @escaping ([Event]) -> Void) {
-
+        
         let endpoint = "http://34.48.73.101/api/auctions/"
         
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-
+        
         AF.request(endpoint, method: .get)
             .validate()
             .responseDecodable(of: [Event].self, decoder: decoder) { response in
@@ -111,5 +111,67 @@ class NetworkManager {
             }
     }
     
+    func getBid(bidId: Int, completion: @escaping (Bid) -> Void) {
+        
+        let endpoint = "http://34.48.73.101/api/bids/\(bidId)"
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        AF.request(endpoint, method: .get, encoding: JSONEncoding.default)
+            .validate()
+            .responseDecodable(of: Bid.self, decoder: decoder) { response in
+                switch response.result {
+                case .success(let bid):
+                    completion(bid)
+                case .failure(let error):
+                    print("failed to get bid, error: \(error)")
+                }
+            }
+    }
+    
+    func placeBid(amount: Int, userId: Int, eventId: Int, completion: @escaping (Bid) -> Void) {
+        
+        let endpoint = "http://34.48.73.101/api/bids/\(eventId)"
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        let parameters: Parameters = [
+            "amount": amount,
+            "user_id": userId
+        ]
+        
+        AF.request(endpoint, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .validate()
+            .responseDecodable(of: Bid.self, decoder: decoder) { response in
+                switch response.result {
+                case .success(let bid):
+                    completion(bid)
+                case .failure(let error):
+                    print("failed to get bid, error: \(error)")
+                }
+            }
+    }
+    
+    func deleteAuction(auctionId: Int, completion: @escaping (Event) -> Void) {
+        
+        let endpoint = "http://34.48.73.101/api/auctions/\(auctionId)"
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        AF.request(endpoint, method: .delete, encoding: JSONEncoding.default)
+            .validate()
+            .responseDecodable(of: Event.self, decoder: decoder) { response in
+                switch response.result {
+                case .success(let event):
+                    print("successfully deleted auction")
+                    completion(event)
+                case .failure(let error):
+                    print("failed to get bid, error: \(error)")
+                }
+            }
+    }
 
 }
